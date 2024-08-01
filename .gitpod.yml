@@ -10,3 +10,6 @@ tasks:
       unzip awscliv2.zip
       sudo ./aws/install
       cd $THEIA_WORKSPACE_ROOT
+git add .
+git commit -m "Your commit message"
+git push origin main
