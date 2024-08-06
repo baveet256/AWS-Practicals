@@ -1,1 +1,25 @@
 #!/usr/bin/env bash
+set -e
+directory="/workspace/AWS-Practicals/bash-scripts/rand_files"
+
+mkdir -p "$directory"
+chmod u+w "$directory"
+num_files=$(( ( RANDOM % 10 ) + 1 ))
+
+for i in $(seq 1 $num_files); do
+
+  # Generate a random filename
+  filename=$(date +%s%N | sha256sum | base64 | head -c 10).txt
+  
+  # Generate random data
+  random_data=$(head /dev/urandom | base64 | head -c 100)
+
+  # Create the file with random content
+  echo "This is file number $i" > "$directory/$filename"
+  echo "Random data: $random_data" >> "$directory/$filename"
+  
+done
+
+echo "$num_files random files created in $directory"
+
+tree $directory
