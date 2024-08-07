@@ -1,25 +1,19 @@
 #!/usr/bin/env bash
-set -e
-directory="/workspace/AWS-Practicals/bash-scripts/rand_files"
 
-mkdir -p "$directory"
-chmod u+w "$directory"
-num_files=$(( ( RANDOM % 10 ) + 1 ))
+if [ $# -ne 1 ]; then
+    echo "Usage: $0 <bucket-name>"
+    exit 1
+fi
 
-for i in $(seq 1 $num_files); do
+if [ $# -ne 2 ]; then
+    echo "Usage: $0 <bucket-name> and the Filename"
+    exit 1
+fi
 
-  # Generate a random filename
-  filename=$(date +%s%N | sha256sum | base64 | head -c 10).txt
-  
-  # Generate random data
-  random_data=$(head /dev/urandom | base64 | head -c 100)
+BUCKET_NAME=$1
+FILE_NAME=$2
 
-  # Create the file with random content
-  echo "This is file number $i" > "$directory/$filename"
-  echo "Random data: $random_data" >> "$directory/$filename"
-  
-done
-
-echo "$num_files random files created in $directory"
-
-tree $directory
+aws s3api put-object \
+--bucket $BUCKET_NAME
+--Key $
+--body
