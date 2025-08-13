@@ -37,5 +37,6 @@ done
 
 echo "$num_files random files created in $directory"
 
+tree $directory
 
 aws s3 sync $directory s3://$BUCKET_NAME

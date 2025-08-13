@@ -1,0 +1,22 @@
+## notes:
+
+Jmes path to query in aws s3api, list buckets
+
+aws s3 sync is basically a two-way file replication tool for S3, but most people use it in one direction at a time.
+aws s3 sync ./local-folder s3://my-bucket/
+
+
+
+$0 - name of the script, that is being executed
+$1 - first argument and so on
+
+$# is the number of arguments passed to the script.
+
+-ne 1 means “not equal to 1”.
+
+
+jq is a library used to sort json
+
+
+ echo "This is file number $i" > "$directory/$filename"  ---> overwrite the content to the file
+  echo "Random data: $random_data" >> "$directory/$filename" ---> appends the content of random_data to the file specified

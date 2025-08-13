@@ -1,1 +1,13 @@
 #!/usr/bin/env bash
+
+echo "--Listing Objects"
+
+# checking if atleast 1 args is provided
+if [ $# -ne 1 ]; then
+    echo "Usage: $0 <bucket-name>"
+    exit 1
+fi
+
+BUCKET_NAME=$1
+
+aws s3api create-bucket --bucket $BUCKET_NAME --region us-east-1

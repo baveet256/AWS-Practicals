@@ -1,4 +1,10 @@
 #!/usr/bin/env bash
 
-aws s3api list-buckets --query Buckets[].Name
+#aws s3api list-buckets --query Buckets[].Name
 
+aws s3api list-buckets \
+  --query "Buckets[*].[Name,CreationDate]" \
+  --output json | \
+  jq -r '.[] | @tsv' | \
+  sort -rk2 | \
+  head -n 3

@@ -1,4 +1,6 @@
 #!/usr/bin/env bash
+
+# checking if atleast 1 args is provided
 if [ $# -ne 1 ]; then
     echo "Usage: $0 <bucket-name>"
     exit 1
