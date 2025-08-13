@@ -19,4 +19,4 @@ jq is a library used to sort json
 
 
  echo "This is file number $i" > "$directory/$filename"  ---> overwrite the content to the file
-  echo "Random data: $random_data" >> "$directory/$filename" ---> appends the content of random_data to the file specified
+echo "Random data: $random_data" >> "$directory/$filename" ---> appends the content of random_data to the file specified
