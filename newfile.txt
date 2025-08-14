@@ -20,3 +20,9 @@ jq is a library used to sort json
 
  echo "This is file number $i" > "$directory/$filename"  ---> overwrite the content to the file
 echo "Random data: $random_data" >> "$directory/$filename" ---> appends the content of random_data to the file specified
+
+
+Key → The full “path” (string) where the object will be stored in the bucket, e.g., "folder/subfolder/file.txt".
+
+Body → The actual content of the file/object you’re uploading.
+

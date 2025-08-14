@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+
+echo "--Listing Objects"
+
+# Check if exactly 1 argument is provided
+if [ $# -ne 1 ]; then
+    echo "Usage: $0 <bucket-name>"
+    exit 1
+fi
+
+BUCKET_NAME=$1
+
+aws s3api delete-objects \
+  --bucket "$BUCKET_NAME" \
+  --delete "$(aws s3api list-objects-v2 --bucket "$BUCKET_NAME" --query='{Objects: Contents[].{Key: Key}}')"
