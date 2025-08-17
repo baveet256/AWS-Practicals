@@ -26,3 +26,5 @@ Key → The full “path” (string) where the object will be stored in the buck
 
 Body → The actual content of the file/object you’re uploading.
 
+
+CloudFormation lets you define your AWS infrastructure as code, and AWS will create, update, or delete it automatically, reliably and consistently.
